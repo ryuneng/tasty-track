@@ -1,66 +1,67 @@
-# 😋 TastyTrack
-<div align="center">
-    <img src="https://github.com/user-attachments/assets/cec1e214-a1a6-4bfc-8915-401012e281c3">
-</div>
-
+# 🍽️ TastyTrack
 > ## 📝 목차
 > 1. [서비스 소개](#-서비스-소개)
-> 2. [주요 기능](#주요-기능)
-> 3. [R&R](#-rr)
-> 4. [프로젝트 일정](#프로젝트-일정)
-> 5. [협업 및 커뮤니케이션](#협업-및-커뮤니케이션-%EF%B8%8F)
-> 6. [Github Issue & Jira 를 통한 Task 트래킹 관리 (WBS)](#github-issue--jira-를-통한-task-트래킹-관리-wbs-%EF%B8%8F%EF%B8%8F)
-> 7. [Discord 를 활용한 소통 및 PR 알림 봇](#discord를-활용한-소통-및-pr-알림-봇-)
-> 8. [프로젝트 환경](#%EF%B8%8F-프로젝트-환경)
-> 9. [기술 선택 이유](#-기술-선택-이유)
-> 10. [요구사항 정의서 정리](#-요구사항-정의서-정리)
-> 11. [서비스 아키텍처](#-서비스-아키텍처)
-> 12. [API 명세서](#-api-명세서)
-> 13. [ERD](#%EF%B8%8F-erd)
-> 14. [트러블 슈팅](#-트러블-슈팅)
-> 15. [고민한 흔적](#-고민한-흔적)
-> 16. [디렉토리 구조](#%EF%B8%8F-디렉토리-구조)
+> 2. [R&R 및 주요 소스 코드](#-rr)
+> 3. [프로젝트 일정](#-프로젝트-일정)
+> 4. [프로젝트 환경](#%EF%B8%8F-프로젝트-환경)
+> 5. [ERD](#%EF%B8%8F-erd)
+> 6. [협업 및 커뮤니케이션](#%EF%B8%8F-협업-및-커뮤니케이션)
+> 7. [Github Issue & Jira 를 통한 Task 트래킹 관리 (WBS)](#%EF%B8%8F%EF%B8%8F-github-issue--jira-를-통한-task-트래킹-관리-wbs)
+> 8. [Discord 를 활용한 소통 및 PR 알림 봇](#-discord를-활용한-소통-및-pr-알림-봇)
+> 9. [트러블 슈팅](#-트러블-슈팅)
+> 10. [고민한 흔적](#-고민한-흔적)
+> 11. [디렉토리 구조](#%EF%B8%8F-디렉토리-구조)
 
-<br/>
+<br>
 
 ## 🍣 서비스 소개
 - 서울시 음식점 공공데이터를 활용하여 서울의 맛집 목록을 자동으로 업데이트하고, 이를 기반으로 서비스를 제공합니다. **사용자의 위치에 맞춰 맛집 및 메뉴를 추천**함으로써 다양한 음식을 더욱 풍부하게 경험할 수 있도록 돕고, 음식을 좋아하는 사람들 간의 소통과 공유를 지원하는 애플리케이션의 API 서버입니다.
 
 - 🔗 **활용한 공공데이터** | [<a href="https://data.seoul.go.kr/dataList/OA-16094/S/1/datasetView.do">https://data.seoul.go.kr/</a>](https://data.seoul.go.kr/dataList/OA-16094/S/1/datasetView.do)
 
-### 주요 기능
-
-> 1. 유저는 본 사이트에 접속해 회원가입 및 내 위치를 지정합니다.<br>
-> 2. **A. 내 위치 기반 맛집추천 = (`내 주변보기`)**<br>
-    - `도보` 기준 `1km` 이내의 맛집을 추천합니다.<br>
-    - `교통수단` 기준 `5km` 이내의 맛집을 추천합니다.<br>
-> 3. **B. 지역명 기준 맛집추천(`특정 지역 보기`)**<br>
-    - 지정한 `지명(시군구)` 중심위치 기준 `10km` 이내의 맛집을 추천합니다.<br>
-> 4. A, B를 다양한 검색기준 (정렬, 필터링 등)으로 맛집 목록을 확인합니다. (`거리순`, `평점순` , `양식`, `중식`)<br>
-> 5. 해당 맛집의 상세정보를 확인할 수 있습니다.<br>
-> 6. 원하는 맛집의 평가를 등록할 수 있습니다.
-
 <br/>
 
-### 👩🏻‍💻 R&R
+## 🧑🏻‍💻 R&R
 | 담당자                                      | 담당 업무                                                        |
 |:-------------------------------------------:|------------------------------------------------------------------|
-| [오예령(팀장)](https://github.com/ohyeryung) | 사용자 기능 구현 (로그인, 회원가입, 회원정보 조회, 회원정보 수정)     |
-| [유리빛나](https://github.com/ryuneng)       | 데이터 파이프라인 구축 (서울시 공공데이터 수집, 전처리, 저장, 자동화) |
+| [오예령](https://github.com/ohyeryung) | 사용자 기능 구현 (로그인, 회원가입, 회원정보 조회, 회원정보 수정)     |
+| [**유리빛나**](https://github.com/ryuneng)       | **데이터 파이프라인 구축 (서울시 공공데이터 수집, 전처리, 저장, 자동화)** |
 | [김은정](https://github.com/rladmswjd119)       | 맛집 조회 기능 구현 (상세 조회, 위치 기반 맛집 추천, 평가 생성)      |
 | [배서진](https://github.com/bsjin1122)       | 맛집 조회 기능 구현 (목록 조회, 지역명 기준 맛집 추천, 시군구 조회), 디스코드 점심메뉴 추천  |
 
-<br>
-
-### 프로젝트 일정
-<details>
-    <summary><b>프로젝트 과정 타임라인 🗓</b></summary><br>
-    <img src="https://github.com/user-attachments/assets/04066110-4312-4a57-b1df-a065f3f987fc">
-</details>
+### 담당 업무 소스 코드
+1. <a href="https://github.com/ryuneng/tasty-track/blob/dev/src/main/java/com/allclear/tastytrack/domain/batch/config/BatchConfig.java">Spring Batch 주요 소스 코드 보기</a>
+2. <a href="https://github.com/ryuneng/tasty-track/blob/dev/src/main/java/com/allclear/tastytrack/domain/batch/service/RawDataService.java">공공데이터를 수집하고 저장하는 로직의 주요 소스 코드 보기</a>
+3. <a href="https://github.com/ryuneng/tasty-track/blob/dev/src/main/java/com/allclear/tastytrack/domain/batch/config/ScheduleConfig.java">배치 작업 스케줄링 주요 소스 코드 보기</a>
 
 <br>
 
-### 협업 및 커뮤니케이션 🗣️ 
+## 🗓 프로젝트 일정
+<img src="https://github.com/user-attachments/assets/04066110-4312-4a57-b1df-a065f3f987fc">
+
+<br>
+<br>
+
+## 🛠️ 프로젝트 환경
+
+| Stack                                                                                                        | Version           |
+|:------------------------------------------------------------------------------------------------------------:|:-----------------:|
+| ![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white) | Spring Boot 3.3.x |
+| ![Gradle](https://img.shields.io/badge/Gradle-02303A.svg?style=for-the-badge&logo=Gradle&logoColor=white)    | Gradle 8.8       |
+| ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)    | JDK 17           |
+| ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white)       | MySQL 8.0        |
+| ![Redis](https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white)    | Redis 6.0        |
+
+
+<br>
+
+## ⛓️ ERD
+<img src="https://github.com/user-attachments/assets/feca69c7-e72e-4e58-8c41-dbdc79d8026b" width="80%">
+
+<br>
+<br>
+
+## 🗣️ 협업 및 커뮤니케이션 
 
 <details>
 <summary>문서화 작업</summary>
@@ -82,7 +83,7 @@
 
 <br/>
 
-### Github Issue & Jira 를 통한 Task 트래킹 관리 (WBS) 🏃‍♀️‍➡️ 
+## 🏃‍♀️‍➡️ Github Issue & Jira 를 통한 Task 트래킹 관리 (WBS) 
 
 <details>
 <summary>개발일정 관리</summary>
@@ -101,7 +102,7 @@
 
 <br/>
 
-### Discord를 활용한 소통 및 PR 알림 봇 🤖 
+## 🤖 Discord를 활용한 소통 및 PR 알림 봇 
 
 <details>
 <summary>소통 및 PR 알림 확인</summary>
@@ -111,102 +112,20 @@
 </div>
 </details>
 
-<br/>
-<br/>
-
-## 🛠️ 프로젝트 환경
-
-| Stack                                                                                                        | Version           |
-|:------------------------------------------------------------------------------------------------------------:|:-----------------:|
-| ![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white) | Spring Boot 3.3.x |
-| ![Gradle](https://img.shields.io/badge/Gradle-02303A.svg?style=for-the-badge&logo=Gradle&logoColor=white)    | Gradle 8.8       |
-| ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)    | JDK 17           |
-| ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white)       | MySQL 8.0        |
-| ![Redis](https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white)    | Redis 6.0        |
-
-<br/>
-
-### ✅ 기술 선택 이유
-
-- **SpringSecurity** - <a href="https://github.com/wanted-all-clear/tasty-track/wiki/SpringSecurity-%EB%8F%84%EC%9E%85"> WIKI 이동 </a>
-- **AccessToken과 RefreshToken** - <a href="https://github.com/wanted-all-clear/tasty-track/wiki/AccessToken%EA%B3%BC-RefreshToken"> WIKI 이동 </a>
-- **ComplatableFuture** - <a href="https://github.com/wanted-all-clear/tasty-track/wiki/ComplatableFuture"> WIKI 이동 </a>
-- **Spring Batch** - <a href="https://github.com/wanted-all-clear/tasty-track/wiki/Spring-Batch-%EB%8F%84%EC%9E%85"> WIKI 이동 </a>
-
-<br>
-
-### 📄 요구사항 정의서 정리
-| 대분류 | 기능명               | Controller & Service method        | 담당자                                 |
-|--------|----------------------|------------------------------------|----------------------------------------|
-| 사용자 | 회원가입              | signup                             | [오예령](https://github.com/ohyeryung)  |
-| 사용자 | 로그인                | signin                             |  [오예령](https://github.com/ohyeryung) |
-| 사용자 | 설정 업데이트         | updateUserInfo                     | [오예령](https://github.com/ohyeryung)  |
-| 사용자 | 정보 조회             | getUserInfo                        | [오예령](https://github.com/ohyeryung)  |
-| 사용자   | AccessToken 재발급    | refreshAccessToken               | [오예령](https://github.com/ohyeryung) |
-| 사용자 | 위치 기반 맛집 추천    | getRestaurantByUserLocation        | [김은정](https://github.com/fkznsha23)  |
-| 맛집   | 맛집 평가 생성         | createReview                      | [김은정](https://github.com/fkznsha23)  |
-| 맛집   | 맛집 상세 조회         | getRestaurantById                     | [김은정](https://github.com/fkznsha23)  |
-| 맛집   | 맛집 목록 조회         | getRestaurantList                 | [배서진](https://github.122)            |
-| 맛집   | 지역명 기준 맛집 추천   | getRestuarantSearchByRegion       | [배서진](https://github.122)            |
-| 맛집   | 시군구 조회            | getRegionList                     | [배서진](https://github.122)            |
-| 맛집   | 디스코드 점심 맛집 전송  | sendScheduledMessage (Service)   | [배서진](https://github.122) |
-| 데이터 | 맛집 데이터 수집       | fetchAndSaveInitDatas              |  [유리빛나](https://github.com/ryuneng) |
-| 데이터 | 맛집 데이터 전처리     | preprocessingAndSaveInitRestaurant | [유리빛나](https://github.com/ryuneng)  |
-| 데이터 | 맛집 데이터 저장       | saveRestaurantsFromRawRestaurants  | [유리빛나](https://github.com/ryuneng)  |
-| 데이터 | 맛집 데이터 자동화     | fetchAndSaveUpdatedDatas           | [유리빛나](https://github.com/ryuneng)  |
-
-<br/>
-
-### 🎨 서비스 아키텍처
-
-
-<img width="885" alt="image" src="https://github.com/user-attachments/assets/419048b0-3a4a-42e7-897b-c92a59351b0a">
-
-<br/>
-
-
-### 🧾 API 명세서
-
- > 자세한 명세는 <a href="https://documenter.getpostman.com/view/20456478/2sAXjM4Xgs">🔗여기</a> 를 클릭해주세요! `(Postman API)`
-
-| 대분류   | 기능                  | Http Method | API Path                               | 토큰 검증 여부 | 담당자 |
-|----------|-----------------------|-------------|----------------------------------------|------|--------|
-| 사용자   | 회원 가입              | `POST`        | /api/users                             | X    | [오예령](https://github.com/ohyeryung) |
-| 사용자   | 로그인                 | `POST`        | /api/users/login                       | X    | [오예령](https://github.com/ohyeryung) |
-| 사용자   | 회원정보 조회          | `GET`         | /api/users                             | O    | [오예령](https://github.com/ohyeryung) |
-| 사용자   | 회원 정보 수정         | `PUT`         | /api/users                             | O    | [오예령](https://github.com/ohyeryung) |
-| 사용자   | AccessToken 재발급    | `POST`        | /api/refresh                          | X    | [오예령](https://github.com/ohyeryung) |
-| 사용자   | 위치 기반 맛집 추천  | `POST`        | /api/users/location                    | X    | [김은정](https://github.com/fkznsha23)   |
-| 맛집 | 맛집 상세 정보 조회    | `GET`        | /api/restaurants/{id}                | O    | [김은정](https://github.com/fkznsha23)   |
-| 맛집 | 맛집 평가 생성        | `POST`        | /api/reviews                           | O    | [김은정](https://github.com/fkznsha23)   |
-| 맛집 | 맛집 목록 조회        | `GET`         | /api/restaurants/list                  | X    | [배서진](https://github.com/bsjin1122)   |
-| 맛집 | 지역명 기준 맛집 추천  | `GET`         | /api/restaurants/region?dosi<br>={dosi}&sgg={sgg}&type={type}<br>name={name}            | X    | [배서진](https://github.com/bsjin1122)   |
-| 맛집 | 시군구 조회           | `GET`         | /api/regions                           | X    | [배서진](https://github.com/bsjin1122)   |
-* 데이터 파이프라인은 자동화 시스템을 통해 처리됩니다.
-* 디스코드 점심추천은 스케쥴러를 통해 평일 오전 11:20에 웹훅 알림으로 전송됩니다.
-
-<br>
-
-## ⛓️ ERD
-<img src="https://github.com/user-attachments/assets/feca69c7-e72e-4e58-8c41-dbdc79d8026b" width="80%">
-
 <br>
 <br>
 
 ## 💥 트러블 슈팅
-- **위도 경도 데이터 타입 통일 과정 중 발생한 문제** - <a href="https://github.com/wanted-all-clear/tasty-track/wiki/%EC%9C%84%EB%8F%84-%EA%B2%BD%EB%8F%84-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%ED%86%B5%EC%9D%BC-%EA%B3%BC%EC%A0%95-%EC%A4%91-%EB%B0%9C%EC%83%9D%ED%95%9C-%EB%AC%B8%EC%A0%9C"> WIKI 이동 </a>
-- **토큰 검증을 필요로하지 않는 API 호출시 발생한 문제** - <a href="https://github.com/wanted-all-clear/tasty-track/wiki/%ED%86%A0%ED%81%B0-%EA%B2%80%EC%A6%9D%EC%9D%84-%ED%95%84%EC%9A%94%EB%A1%9C%ED%95%98%EC%A7%80-%EC%95%8A%EB%8A%94-API-%ED%98%B8%EC%B6%9C%EC%8B%9C-%EB%B0%9C%EC%83%9D%ED%95%9C-%EB%AC%B8%EC%A0%9C"> WIKI 이동 </a>
-- **토큰 검증 테스트 시 발생한 문제** - <a href="https://github.com/wanted-all-clear/tasty-track/wiki/%ED%86%A0%ED%81%B0-%EA%B2%80%EC%A6%9D-%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%8B%9C-%EB%B0%9C%EC%83%9D%ED%95%9C-%EB%AC%B8%EC%A0%9C"> WIKI 이동 </a>
-- **Invalid use of argument matchers!** - <a href="https://github.com/wanted-all-clear/tasty-track/wiki/Invalid-use-of-argument-matchers!"> WIKI 이동 </a>
-- **원본 데이터를 가공 데이터에 저장하는 과정에서 발생한 6가지 주소 관련 문제** - <a href="https://github.com/wanted-all-clear/tasty-track/wiki/%EC%9B%90%EB%B3%B8-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%EA%B0%80%EA%B3%B5-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%97%90-%EC%A0%80%EC%9E%A5%ED%95%98%EB%8A%94-%EA%B3%BC%EC%A0%95%EC%97%90%EC%84%9C-%EB%B0%9C%EC%83%9D%ED%95%9C-6%EA%B0%80%EC%A7%80-%EC%A3%BC%EC%86%8C-%EA%B4%80%EB%A0%A8-%EB%AC%B8%EC%A0%9C"> WIKI 이동 </a>
+- **원본 데이터를 가공 데이터에 저장하는 과정에서 발생한 6가지 주소 관련 문제** - <a href="https://github.com/ryuneng/tasty-track/wiki/%EC%9B%90%EB%B3%B8-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%EA%B0%80%EA%B3%B5-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%97%90-%EC%A0%80%EC%9E%A5%ED%95%98%EB%8A%94-%EA%B3%BC%EC%A0%95%EC%97%90%EC%84%9C-%EB%B0%9C%EC%83%9D%ED%95%9C-6%EA%B0%80%EC%A7%80-%EC%A3%BC%EC%86%8C-%EA%B4%80%EB%A0%A8-%EB%AC%B8%EC%A0%9C"> WIKI 이동 </a>
+- **Spring Batch 구현 중에 발생한 오류** - <a href="https://github.com/ryuneng/tasty-track/wiki/Spring-Batch-%EA%B5%AC%ED%98%84-%EC%A4%91%EC%97%90-%EB%B0%9C%EC%83%9D%ED%95%9C-%EC%98%A4%EB%A5%98"> WIKI 이동 </a>
+- **Docker 실행 과정에서 발생한 오류** - <a href="https://github.com/ryuneng/tasty-track/wiki/Docker-%EC%8B%A4%ED%96%89-%EA%B3%BC%EC%A0%95%EC%97%90%EC%84%9C-%EB%B0%9C%EC%83%9D%ED%95%9C-%EC%98%A4%EB%A5%98"> WIKI 이동 </a>
 
 <br>
 
 ## 🤔 고민한 흔적
-- **프로젝트 서버 분리 고민** - <a href="https://github.com/wanted-all-clear/tasty-track/wiki/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%84%9C%EB%B2%84-%EB%B6%84%EB%A6%AC-%EA%B3%A0%EB%AF%BC"> WIKI 이동 </a>
-- **Entity 클래스의 PK 필드 타입 (Long vs int)** - <a href="https://github.com/wanted-all-clear/tasty-track/wiki/Entity-%ED%81%B4%EB%9E%98%EC%8A%A4%EC%9D%98-PK-%ED%95%84%EB%93%9C-%ED%83%80%EC%9E%85-(Long-vs-int)"> WIKI 이동 </a>
-- **위도, 경도의 데이터 타입 (Double vs Decimal)** - <a href="https://github.com/wanted-all-clear/tasty-track/wiki/%EC%9C%84%EB%8F%84,-%EA%B2%BD%EB%8F%84%EC%9D%98-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-(Double-vs-Decimal)"> WIKI 이동 </a>
-- **디스코드 점심 메뉴 추천 알림 구현하기** <a href="https://github.com/wanted-all-clear/tasty-track/wiki/%EB%94%94%EC%8A%A4%EC%BD%94%EB%93%9C-%EC%A0%90%EC%8B%AC-%EB%A9%94%EB%89%B4-%EC%B6%94%EC%B2%9C-%EC%95%8C%EB%A6%BC-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0"> WIKI 이동</a>
+- **Spring Batch를 도입한 이유** - <a href="https://github.com/ryuneng/tasty-track/wiki/Spring-Batch%EB%A5%BC-%EB%8F%84%EC%9E%85%ED%95%9C-%EC%9D%B4%EC%9C%A0"> WIKI 이동 </a>
+- **Entity 클래스의 PK 필드 타입 (Long vs int)** - <a href="https://github.com/ryuneng/tasty-track/wiki/Entity-%ED%81%B4%EB%9E%98%EC%8A%A4%EC%9D%98-PK-%ED%95%84%EB%93%9C-%ED%83%80%EC%9E%85-(Long-vs-int)"> WIKI 이동 </a>
+- **위도, 경도의 데이터 타입 (Double vs Decimal)** - <a href="https://github.com/ryuneng/tasty-track/wiki/%EC%9C%84%EB%8F%84,-%EA%B2%BD%EB%8F%84%EC%9D%98-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-(Double-vs-Decimal)"> WIKI 이동 </a>
  
 <br>
 

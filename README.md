@@ -1,5 +1,6 @@
 # 🍽️ TastyTrack
-> ## 📝 목차
+
+> ## 🔍 목차
 > 1. [서비스 소개](#-서비스-소개)
 > 2. [R&R 및 주요 소스 코드](#-rr)
 > 3. [프로젝트 일정](#-프로젝트-일정)
@@ -14,7 +15,7 @@
 
 <br>
 
-## 🍣 서비스 소개
+## 📋 서비스 소개
 - 서울시 음식점 공공데이터를 활용하여 서울의 맛집 목록을 자동으로 업데이트하고, 이를 기반으로 서비스를 제공합니다. **사용자의 위치에 맞춰 맛집 및 메뉴를 추천**함으로써 다양한 음식을 더욱 풍부하게 경험할 수 있도록 돕고, 음식을 좋아하는 사람들 간의 소통과 공유를 지원하는 애플리케이션의 API 서버입니다.
 
 - 🔗 **활용한 공공데이터** | [<a href="https://data.seoul.go.kr/dataList/OA-16094/S/1/datasetView.do">https://data.seoul.go.kr/</a>](https://data.seoul.go.kr/dataList/OA-16094/S/1/datasetView.do)
@@ -116,21 +117,21 @@
 <br>
 
 ## 💥 트러블 슈팅
-- **원본 데이터를 가공 데이터에 저장하는 과정에서 발생한 6가지 주소 관련 문제** - <a href="https://github.com/ryuneng/tasty-track/wiki/%EC%9B%90%EB%B3%B8-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%EA%B0%80%EA%B3%B5-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%97%90-%EC%A0%80%EC%9E%A5%ED%95%98%EB%8A%94-%EA%B3%BC%EC%A0%95%EC%97%90%EC%84%9C-%EB%B0%9C%EC%83%9D%ED%95%9C-6%EA%B0%80%EC%A7%80-%EC%A3%BC%EC%86%8C-%EA%B4%80%EB%A0%A8-%EB%AC%B8%EC%A0%9C"> WIKI 이동 </a>
-- **Spring Batch 구현 중에 발생한 오류** - <a href="https://github.com/ryuneng/tasty-track/wiki/Spring-Batch-%EA%B5%AC%ED%98%84-%EC%A4%91%EC%97%90-%EB%B0%9C%EC%83%9D%ED%95%9C-%EC%98%A4%EB%A5%98"> WIKI 이동 </a>
-- **Docker 실행 과정에서 발생한 오류** - <a href="https://github.com/ryuneng/tasty-track/wiki/Docker-%EC%8B%A4%ED%96%89-%EA%B3%BC%EC%A0%95%EC%97%90%EC%84%9C-%EB%B0%9C%EC%83%9D%ED%95%9C-%EC%98%A4%EB%A5%98"> WIKI 이동 </a>
+- 원본 데이터를 가공 데이터에 저장하는 과정에서 발생한 6가지 주소 관련 문제 - <a href="https://github.com/ryuneng/tasty-track/wiki/%EC%9B%90%EB%B3%B8-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%EA%B0%80%EA%B3%B5-%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%97%90-%EC%A0%80%EC%9E%A5%ED%95%98%EB%8A%94-%EA%B3%BC%EC%A0%95%EC%97%90%EC%84%9C-%EB%B0%9C%EC%83%9D%ED%95%9C-6%EA%B0%80%EC%A7%80-%EC%A3%BC%EC%86%8C-%EA%B4%80%EB%A0%A8-%EB%AC%B8%EC%A0%9C"> WIKI 이동 </a>
+- Spring Batch 구현 중에 발생한 오류 - <a href="https://github.com/ryuneng/tasty-track/wiki/Spring-Batch-%EA%B5%AC%ED%98%84-%EC%A4%91%EC%97%90-%EB%B0%9C%EC%83%9D%ED%95%9C-%EC%98%A4%EB%A5%98"> WIKI 이동 </a>
+- Docker 실행 과정에서 발생한 오류 - <a href="https://github.com/ryuneng/tasty-track/wiki/Docker-%EC%8B%A4%ED%96%89-%EA%B3%BC%EC%A0%95%EC%97%90%EC%84%9C-%EB%B0%9C%EC%83%9D%ED%95%9C-%EC%98%A4%EB%A5%98"> WIKI 이동 </a>
 
 <br>
 
 ## 🤔 고민한 흔적
-- **Spring Batch를 도입한 이유** - <a href="https://github.com/ryuneng/tasty-track/wiki/Spring-Batch%EB%A5%BC-%EB%8F%84%EC%9E%85%ED%95%9C-%EC%9D%B4%EC%9C%A0"> WIKI 이동 </a>
-- **Entity 클래스의 PK 필드 타입 (Long vs int)** - <a href="https://github.com/ryuneng/tasty-track/wiki/Entity-%ED%81%B4%EB%9E%98%EC%8A%A4%EC%9D%98-PK-%ED%95%84%EB%93%9C-%ED%83%80%EC%9E%85-(Long-vs-int)"> WIKI 이동 </a>
-- **위도, 경도의 데이터 타입 (Double vs Decimal)** - <a href="https://github.com/ryuneng/tasty-track/wiki/%EC%9C%84%EB%8F%84,-%EA%B2%BD%EB%8F%84%EC%9D%98-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-(Double-vs-Decimal)"> WIKI 이동 </a>
+- Spring Batch를 도입한 이유 - <a href="https://github.com/ryuneng/tasty-track/wiki/Spring-Batch%EB%A5%BC-%EB%8F%84%EC%9E%85%ED%95%9C-%EC%9D%B4%EC%9C%A0"> WIKI 이동 </a>
+- Entity 클래스의 PK 필드 타입 (Long vs int) - <a href="https://github.com/ryuneng/tasty-track/wiki/Entity-%ED%81%B4%EB%9E%98%EC%8A%A4%EC%9D%98-PK-%ED%95%84%EB%93%9C-%ED%83%80%EC%9E%85-(Long-vs-int)"> WIKI 이동 </a>
+- 위도, 경도의 데이터 타입 (Double vs Decimal) - <a href="https://github.com/ryuneng/tasty-track/wiki/%EC%9C%84%EB%8F%84,-%EA%B2%BD%EB%8F%84%EC%9D%98-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-(Double-vs-Decimal)"> WIKI 이동 </a>
  
 <br>
 
 ## 🗂️ 디렉토리 구조
-<details><summary>직관적인 구조 파악과 관리를 위해 <b>도메인형 구조</b>를 채택하였습니다. <b>(더보기)</b></summary>
+<details><summary>직관적인 구조 파악과 관리를 위해 <b>도메인형 구조</b>를 채택하였습니다.</summary>
 
 <h3>🗂️ 전체 구조</h3>
     
